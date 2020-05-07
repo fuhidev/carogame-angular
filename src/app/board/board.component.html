@@ -1,0 +1,17 @@
+<div>
+  <span *ngIf="nextPlayer">
+    nextPlayer: {{this.isPlayerX ? 'X':'O'}}
+  </span>
+  <div class="board-row" *ngFor="let col of lstTempHtml;let i = index">
+    <app-square [index]="(i*N)+j" *ngFor="let row of lstTempHtml;let j = index" [value]="lstValue[(i*N)+j]"
+      (clicked)="clickSquare($event)">
+    </app-square>
+  </div>
+</div>
+<ul>
+  <li *ngFor="let item of lstTempValue;let i = index">
+    <button (click)="clickHistory(i)">
+      Bước thứ {{i+1}}
+    </button>
+  </li>
+</ul>
